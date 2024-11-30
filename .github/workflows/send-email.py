@@ -149,23 +149,21 @@ for headline in headlines:
 # Store data in a DataFrame
 df = pd.DataFrame(data)
 
-# Combine all filtering conditions into one logical block for clarity
+# Combine all filtering conditions into one logical block
 filter_condition = ~(
     (df['Risk Indicator'] == 'NO') &
     (df['Life/Death'] == 'NO') &
-    (df['States'] == 'NO') &
-    (df['Case Situation'] == 'NO')
+    (df['Case Situation'] == 'NO')  # Ensure rows with NO in all these columns are removed
 )
 
-# Apply the first filter
+# Apply the filter to exclude rows where all three columns are 'NO'
 df_filtered = df[filter_condition]
 
-# Further filter rows where 'States' is 'NO'
+# Apply a secondary filter to exclude rows where 'States' is 'NO'
 df_filtered = df_filtered[df_filtered['States'] != 'NO']
 
-# Reset index after all filtering is done
+# Reset the index after filtering
 df_filtered.reset_index(drop=True, inplace=True)
-
 
 # Save the filtered data to a CSV file with a timestamp to avoid overwriting
 timestamp = datetime.now().strftime("%Y%m%d%H%M%S")
