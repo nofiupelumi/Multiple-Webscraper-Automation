@@ -173,7 +173,7 @@ df_filtered.to_csv(filename, index=False)
 ####
 # Email configuration
 sender_email = os.environ.get('USER_EMAIL')
-receiver_email = "nofiumoruf17@gmail.com" #"riskcontrolservicesnig@gmail.com"
+receiver_email = "riskcontrolservicesnig@gmail.com"
 subject = "Cable TV Daily News Headlines"
 body = "Please find attached the latest news headlines with categorized information."
 smtp_server = "smtp.gmail.com"

@@ -2,7 +2,7 @@ name: daily-report
 
 on:
   schedule:
-    - cron: '57 16 * * *'
+    - cron: '54 16 * * *'
   workflow_dispatch:
 jobs:
   build:
