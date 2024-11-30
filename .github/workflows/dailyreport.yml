@@ -1,0 +1,30 @@
+name: daily-report
+
+on:
+  schedule:
+    - cron: '57 16 * * *'
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v4
+        with:
+          python-version: 3.9
+      # Install dependencies
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install requests
+          pip install beautifulsoup4
+          pip install pandas
+          pip install html5lib
+          pip install lxml
+
+
+      - name: Run email code
+        env:
+          USER_EMAIL: ${{ secrets.USER_EMAIL }}
+          USER_PASSWORD: ${{ secrets.USER_PASSWORD }}
+        run: python .github/workflows/send-email.py
