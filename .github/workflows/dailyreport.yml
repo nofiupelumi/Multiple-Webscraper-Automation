@@ -2,28 +2,38 @@ name: daily-report
 
 on:
   schedule:
-    - cron: '54 16 * * *'
+    - cron: '54 16 * * *'  # Adjust cron as needed
   workflow_dispatch:
+
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
         with:
           python-version: 3.9
+
       # Install dependencies
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
           pip install --upgrade certifi
-          pip install requests
-          pip install beautifulsoup4
-          pip install pandas
-          pip install html5lib
-          pip install lxml
+          pip install requests beautifulsoup4 pandas html5lib lxml
 
+      # Update CA certificates to fix SSL verification issues
+      - name: Update CA certificates
+        run: sudo apt-get install --reinstall ca-certificates
 
+      # Debug SSL connection if needed
+      - name: Check SSL certificate of the target website
+        run: |
+          echo | openssl s_client -connect factcheck.thecable.ng:443 -servername factcheck.thecable.ng
+
+      # Run the email script
       - name: Run email code
         env:
           USER_EMAIL: ${{ secrets.USER_EMAIL }}
