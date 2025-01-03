@@ -90,7 +90,7 @@ for headline in headlines:
 
     # Visit the link to get the full content of the article
     try:
-        article_response = requests.get(link, headers=headers)
+        article_response = requests.get(link, headers=headers, verify=False)
         article_response.raise_for_status()
         article_soup = BeautifulSoup(article_response.text, 'html.parser')
 
