@@ -32,6 +32,9 @@ jobs:
       - name: Check SSL certificate of the target website
         run: |
           echo | openssl s_client -connect factcheck.thecable.ng:443 -servername factcheck.thecable.ng
+      - name: Test website accessibility
+        run: curl -I https://www.ripplesnigeria.com/
+
 
       # Run the email script
       - name: Run email code
