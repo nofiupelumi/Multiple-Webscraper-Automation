@@ -33,7 +33,7 @@ jobs:
         run: |
           echo | openssl s_client -connect factcheck.thecable.ng:443 -servername factcheck.thecable.ng
       - name: Test website accessibility
-        run: curl -I https://www.thecable.ng/
+        run: curl -I https://www.channelstv.com/
 
 
       # Run the email script
