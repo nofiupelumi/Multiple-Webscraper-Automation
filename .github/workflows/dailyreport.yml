@@ -35,14 +35,8 @@ jobs:
       - name: Test website accessibility
         run: |
           urls=(
-            "https://punchng.com"
-            "https://tribuneonlineng.com"            
-            "https://guardian.ng"
-            "https://www.dailytrust.com"
-            "https://nigeriariskindex.com"
-            "https://eonintelligence.com"                        
-            "https://saharareporters.com"
-            "https://sunnewsonline.com"
+            "https://dailytrust.com"
+            "https://thesun.ng/"
             
           )
       
