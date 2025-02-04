@@ -36,7 +36,7 @@ jobs:
         run: |
           urls=(
             "https://dailytrust.com"
-            "https://thesun.ng/"
+            
             
           )
       
