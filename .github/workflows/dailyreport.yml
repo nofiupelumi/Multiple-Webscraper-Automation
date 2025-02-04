@@ -35,25 +35,15 @@ jobs:
       - name: Test website accessibility
         run: |
           urls=(
-            "https://www.punchng.com"
-            "https://www.tribuneonlineng.com"
-            "https://www.pmnewsnigeria.com"
-            "https://www.guardian.ng"
+            "https://punchng.com"
+            "https://tribuneonlineng.com"            
+            "https://guardian.ng"
             "https://www.dailytrust.com"
-            "https://www.dailypost.ng"
-            "https://www.eonintelligence.com"
-            "https://www.channelstv.com"
-            "https://www.ripplesnigeria.com"
-            "https://www.nigeriabulletin.com"
-            "https://www.thisdaylive.com"
-            "https://www.saharareporters.com"
-            "https://www.thenationonlineng.net"
-            "https://www.vanguardngr.com"
-            "https://www.premiumtimesng.com"
-            "https://www.sunnewsonline.com"
-            "https://www.naji.com"
-            "https://www.dailytimes.ng"
-            "https://www.nigerianwatch.com"
+            "https://nigeriariskindex.com"
+            "https://eonintelligence.com"                        
+            "https://saharareporters.com"
+            "https://sunnewsonline.com"
+            
           )
       
           for url in "${urls[@]}"; do
