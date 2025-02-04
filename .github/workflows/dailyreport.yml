@@ -33,7 +33,33 @@ jobs:
         run: |
           echo | openssl s_client -connect factcheck.thecable.ng:443 -servername factcheck.thecable.ng
       - name: Test website accessibility
-        run: curl -I https://www.thisdaylive.com/
+        run: |
+          urls=(
+            "https://www.punchng.com"
+            "https://www.tribuneonlineng.com"
+            "https://www.pmnewsnigeria.com"
+            "https://www.guardian.ng"
+            "https://www.dailytrust.com"
+            "https://www.dailypost.ng"
+            "https://www.eonintelligence.com"
+            "https://www.channelstv.com"
+            "https://www.ripplesnigeria.com"
+            "https://www.nigeriabulletin.com"
+            "https://www.thisdaylive.com"
+            "https://www.saharareporters.com"
+            "https://www.thenationonlineng.net"
+            "https://www.vanguardngr.com"
+            "https://www.premiumtimesng.com"
+            "https://www.sunnewsonline.com"
+            "https://www.naji.com"
+            "https://www.dailytimes.ng"
+            "https://www.nigerianwatch.com"
+          )
+      
+          for url in "${urls[@]}"; do
+            echo "Checking: $url"
+            curl -I --max-time 10 "$url" || echo "Failed to reach $url"
+          done
 
 
       # Run the email script
